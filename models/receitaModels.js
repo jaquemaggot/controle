@@ -1,9 +1,9 @@
 var client = require('../config/dbconnection');
 
 module.exports = {
-    listarPessoas
+    listarReceitas
 }
 
-function listarPessoas(callback){
-    client.query('SELECT * FROM  pessoa', callback);
+function listarReceitas(callback){
+    client.query('SELECT * FROM  receita', callback);
 }
