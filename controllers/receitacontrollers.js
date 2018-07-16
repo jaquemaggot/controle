@@ -2,7 +2,8 @@ var model = require('../models/receitaModels');
 
 module.exports = {
     listarReceitas,
-    buscarReceita
+    buscarReceita,
+    inserirReceita
 }
 
 function listarReceitas(req, res) {
@@ -25,3 +26,13 @@ function buscarReceita(req, res) {
         res.json({ receitas : result});
     })
 };
+
+function inserirReceita(req, res) {
+    var dados = req.body;
+    model.inserirReceita(dados, function (err, result) {
+        if (err) {
+            throw err;
+        }
+        res.json({ receitas : result })
+    })
+}

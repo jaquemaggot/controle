@@ -2,7 +2,8 @@ var model = require('../models/pessoaModels');
 
 module.exports = {
     listarPessoas,
-    buscarPessoa
+    buscarPessoa,
+    inserirPessoa
 }
 
 function listarPessoas(req, res) {
@@ -23,3 +24,13 @@ function buscarPessoa(req, res) {
         res.json({ pessoas : result});
     })
 };
+
+function inserirPessoa(req, res) {
+    var dados = req.body;
+    model.inserirPessoa(dados, function (err, result) {
+        if (err) {
+            throw err;
+        }
+        res.json({ pessoas : result })
+    })
+}

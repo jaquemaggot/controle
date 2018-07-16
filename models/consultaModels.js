@@ -2,7 +2,8 @@ var client = require('../config/dbconnection');
 
 module.exports = {
     listarconsulta,
-    listarConsultaById
+    listarConsultaById,
+    inserirConsulta
 }
 
 function listarconsulta(callback){
@@ -10,4 +11,8 @@ function listarconsulta(callback){
 }
 function listarConsultaById(id, callback){
 	client.query('SELECT * FROM consulta WHERE consulta_id = ' + id, callback);
+}
+function inserirConsulta(dados, callback) {
+	var msql = 'INSERT INTO consulta SET ? ';
+	client.query(msql, dados, callback);
 }

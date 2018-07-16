@@ -1,7 +1,8 @@
 var model = require('../models/itens_receitaModels');
 
 module.exports = {
-    listarItensReceita
+    listarItensReceita,
+    inserirItensReceita
 }
 
 function listarItensReceita(req, res) {
@@ -13,3 +14,12 @@ function listarItensReceita(req, res) {
     });
 }
 
+function inserirItensReceita(req, res) {
+    var dados = req.body;
+    model.inserirItensReceita(dados, function (err, result) {
+        if (err) {
+            throw err;
+        }
+        res.json({ itensReceita : result })
+    })
+}
