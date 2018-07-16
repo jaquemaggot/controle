@@ -1,7 +1,8 @@
 var model = require('../models/pessoaModels');
 
 module.exports = {
-    listarPessoas
+    listarPessoas,
+    buscarPessoa
 }
 
 function listarPessoas(req, res) {
@@ -12,3 +13,13 @@ function listarPessoas(req, res) {
         res.json({ pessoas : result });
     });
 }
+
+function buscarPessoa(req, res) {
+    id = req.params.id; 
+    model.listarPessoaById(id, function (err, result) {
+        if (err) {
+            throw err;
+        }
+        res.json({ pessoas : result});
+    })
+};
