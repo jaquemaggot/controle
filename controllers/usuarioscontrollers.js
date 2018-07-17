@@ -39,16 +39,12 @@ function inserirUsuario(req, res) {
 }
 
 function alterarUsuario(req,res){
-    id = req.params.id;
+    id = req.params.codigo;
+    console.log(id)
     model.alterarUsuario(id,req.body,function (err, result) {
         if (err) {
             throw err;
         }
-        model.listarUsuarioById(function (err, result) {
-            if (err) {
-                throw err;
-            }
-            res.json({ usuarios : result })
-        })
+        res.json({ usuarios : result });
     })
 }
