@@ -5,4 +5,6 @@ module.exports = function(app){
     app.get('/listarusuarios', controller.listarUsuarios);
     app.get('/buscarUsuario/:id',controller.buscarUsuario);
     app.post('/inserirUsuario', controller.inserirUsuario);
+    app.post('/alterarUsuario/:id',controller.alterarUsuario);
+
 }
