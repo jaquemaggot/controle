@@ -20,5 +20,5 @@ function inserirReceita(dados, callback) {
 
 function alterarReceita(id,dados,callback){
     console.log(dados)
-    client.query(`UPDATE receita SET receita_consulta = ${dados.receita_consulta}, receita_obs = ${dados.receita_obs}, receita_data = ${dados.receita_data}, receita_inativo = ${dados.receita_inativo},receita_paciente = ${dados.receita_paciente},receita_atendente = ${dados.receita_atendente}  WHERE receita_id = ${id}`,callback)
+    client.query(`UPDATE receita SET receita_consulta = ${dados.receita_consulta} , receita_obs = ${dados.receita_obs} , receita_data = ${dados.receita_data} , receita_inativo = ${dados.receita_inativo}, receita_paciente = ${dados.receita_paciente} , receita_atendente = ${dados.receita_atendente}  WHERE receita_id = ${id}`,callback)
 }
